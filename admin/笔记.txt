@@ -1,0 +1,16 @@
+1.PUT和POST 请求区别
+PUT和POST都有更改指定URI的语义.但PUT被定义为idempotent的方法，POST则不是.idempotent的方法:如果一个方法重复执行
+
+多次，产生的效果是一样的，那就是idempotent的。也就是说：
+
+PUT请求：如果两个请求相同，后一个请求会把第一个请求覆盖掉。（所以PUT用来改资源）
+
+Post请求：后一个请求不会把第一个请求覆盖掉。（所以Post用来增资源）
+ 另外 post，put，patch都比较相似，都可以form-data，applicition/json请求。
+ form-data请求：
+ let data = {id:12}
+ let formData = new FormData()
+ for(let key in data){
+     formData.append(key,data[key])
+ }
+ axios.post('/post',formData).then(res=>{})

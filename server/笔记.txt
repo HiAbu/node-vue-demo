@@ -1,0 +1,2 @@
+1.inflection 工具包，专门转大小写和类名 本项目中用到 classify（）方法
+2.multer 处理图片上传
