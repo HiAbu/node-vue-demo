@@ -1,7 +1,7 @@
 <!--
  * @Author: Wangmh
  * @Date: 2020-11-26 16:46:21
- * @LastEditTime: 2020-11-30 16:22:34
+ * @LastEditTime: 2020-12-02 16:13:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\views\ItemEdit.vue
@@ -80,29 +80,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.avatar-uploader .el-upload:hover {
-  border-color: #409eff;
-}
-.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
-  width: 178px;
-  height: 178px;
-  line-height: 178px !important;
-  text-align: center;
-}
-.avatar {
-  width: 178px;
-  height: 178px;
-  display: block;
-}
-</style>

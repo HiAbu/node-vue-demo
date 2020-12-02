@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 17:24:20
- * @LastEditTime: 2020-12-01 15:35:52
+ * @LastEditTime: 2020-12-01 17:24:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\router\index.js
@@ -22,6 +22,8 @@ import HeroList from '@/views/HeroList';
 import ArticleEdit from '@/views/ArticleEdit';
 import ArticleList from '@/views/ArticleList';
 
+import AdEdit from '@/views/AdEdit';
+import AdList from '@/views/AdList';
 Vue.use(VueRouter);
 
 const routes = [
@@ -84,6 +86,20 @@ const routes = [
       {
         path: '/article/list',
         component: ArticleList
+      },
+      //下面是广告
+      {
+        path: '/ads/create',
+        component: AdEdit
+      },
+      {
+        path: '/ads/edit/:id',
+        props: true,
+        component: AdEdit
+      },
+      {
+        path: '/ads/list',
+        component: AdList
       }
     ]
   }
