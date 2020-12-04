@@ -1,7 +1,7 @@
 <!--
  * @Author: Wangmh
  * @Date: 2020-11-26 16:46:21
- * @LastEditTime: 2020-12-03 10:16:45
+ * @LastEditTime: 2020-12-04 17:18:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\views\ItemEdit.vue
@@ -23,6 +23,7 @@
           <el-form-item label="头像">
             <el-upload
               class="avatar-uploader"
+              :headers="getAuthHeaders()"
               :action="$http.defaults.baseURL + '/upload'"
               :show-file-list="false"
               :on-success="afterUpload"
@@ -115,6 +116,7 @@
               <el-form-item label="图标">
                 <el-upload
                   class="avatar-uploader"
+                  :headers="getAuthHeaders()"
                   :action="$http.defaults.baseURL + '/upload'"
                   :show-file-list="false"
                   :on-success="(res) => $set(item, 'icon', res.url)"
