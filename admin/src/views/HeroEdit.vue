@@ -1,7 +1,7 @@
 <!--
  * @Author: Wangmh
  * @Date: 2020-11-26 16:46:21
- * @LastEditTime: 2020-12-01 15:25:24
+ * @LastEditTime: 2020-12-03 10:16:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\views\ItemEdit.vue
@@ -219,30 +219,6 @@ export default {
 </script>
 
 <style>
-.avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.avatar-uploader .el-upload:hover {
-  border-color: #409eff;
-}
-.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
-  width: 5rem;
-  height: 5rem;
-  line-height: 5rem !important;
-  text-align: center;
-}
-.avatar {
-  width: 5rem;
-  height: 5rem;
-  display: block;
-}
-
 .el-container > div {
   width: 100%;
 }

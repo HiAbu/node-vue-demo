@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-11-25 09:29:16
- * @LastEditTime: 2020-11-30 15:04:44
- * @LastEditors: your name
+ * @LastEditTime: 2020-12-03 15:03:26
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\server\index.js
  */
@@ -10,6 +10,8 @@
 const express = require('express');
 
 const app = express();
+//设置一个加密token用的一串字符 原应该设置在环境变量里，这里放在全局的app下，为了方便
+app.set('secret', '231a2df1a2sdfasdf');
 
 app.use(require('cors')()); //把跨域模块引进来直接使用
 //express.json()解析请求体，算是bodyParser中的一部分功能

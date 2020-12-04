@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-24 17:24:20
- * @LastEditTime: 2020-12-01 17:24:45
+ * @LastEditTime: 2020-12-04 16:59:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\router\index.js
@@ -24,9 +24,15 @@ import ArticleList from '@/views/ArticleList';
 
 import AdEdit from '@/views/AdEdit';
 import AdList from '@/views/AdList';
+
+import AdminUserEdit from '@/views/AdminUserEdit';
+import AdminUserList from '@/views/AdminUserList';
+
+import Login from '@/views/Login';
 Vue.use(VueRouter);
 
 const routes = [
+  { path: '/login', name: 'Login', component: Login, meta: { isPublic: true } },
   {
     path: '/',
     name: 'Home',
@@ -100,6 +106,20 @@ const routes = [
       {
         path: '/ads/list',
         component: AdList
+      },
+      //下面是用户
+      {
+        path: '/admin_users/create',
+        component: AdminUserEdit
+      },
+      {
+        path: '/admin_users/edit/:id',
+        props: true,
+        component: AdminUserEdit
+      },
+      {
+        path: '/admin_users/list',
+        component: AdminUserList
       }
     ]
   }
@@ -109,6 +129,13 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+});
+router.beforeEach((to, from, next) => {
+  // 如果非公开页面，且无token，就让返回登录页
+  if (!to.meta.isPublic && !localStorage.token) {
+    return next('/login');
+  }
+  next();
 });
 
 export default router;

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-01 17:22:45
- * @LastEditTime: 2020-12-02 15:58:41
+ * @LastEditTime: 2020-12-04 17:07:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\views\AdEdit.vue
@@ -26,6 +26,7 @@
             </el-form-item>
             <el-form-item label="图片" style="margin-top:0.5rem">
               <el-upload
+                :headers="getAuthHeaders()"
                 class="avatar-uploader"
                 :action="$http.defaults.baseURL + '/upload'"
                 :show-file-list="false"
