@@ -1,5 +1,5 @@
 /*reset*/
-
+@import './variables';
 * {
   box-sizing: border-box;
   outline: none;
@@ -12,23 +12,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.2em;
   background: #f1f1f1;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: #999;
 }
-
-/*colors*/
-//定义变量可以是数组或者键值对，如果是键值对，用逗号隔开。可以用引号引起来变量名，以免跟色值white混淆
-$colors: (
-  'primary': #db9e3f,
-  'white': #fff,
-  'light': #f9f9f9,
-  'gray': #999,
-  'dark-1': #343440,
-  'dark': #222,
-  'black': #000
-);
 
 @each $colorKey, $color in $colors {
   .text-#{$colorKey} {
@@ -42,24 +31,9 @@ $colors: (
 /*text align*/
 @each $var in (left, center, right) {
   .text-#{$var} {
-    text-align: $var;
+    text-align: $var !important;
   }
 }
-
-/*font size*/
-$base-font-size: 1rem;
-$font-sizes: (
-  //10px
-    xs: 0.769231,
-  //12px
-    sm: 0.923077,
-  //13
-    md: 1,
-  //14
-    lg: 1.076923,
-  //16
-    xl: 1.230769
-);
 
 @each $sizeKey, $size in $font-sizes {
   .fs-#{$sizeKey} {
@@ -76,14 +50,10 @@ $font-sizes: (
 .flex-column {
   flex-direction: column;
 }
-//主轴对齐方式 justify-content
-$flex-jc: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  between: space-between,
-  around: space-around
-);
+//换行 flex布局一半都不换行，想让换行用wrap
+.flex-wrap {
+  flex-wrap: wrap;
+}
 
 @each $key, $value in $flex-jc {
   .jc-#{$key} {
@@ -91,18 +61,18 @@ $flex-jc: (
   }
 }
 
-//交叉轴对齐方式 align-items
-$flex-ai: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  stretch: stretch
-);
-
 @each $key, $value in $flex-ai {
   .jc-#{$key} {
     align-items: $value;
   }
+}
+
+/*width 100 height 100*/
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
 }
 
 //flex-grow  存在剩余空间，各个同级模块拉伸比例
@@ -112,6 +82,7 @@ $flex-ai: (
 //auto 代表 1 1 auto ，none代表 0 0 auto。auto是根据内容来分配大小，1就是直接平均分配
 
 //这里简写 shrink grow 都是1
+// 这里跟grow1一样的，都是填充剩余空间
 .flex-1 {
   flex: 1;
 }
@@ -119,29 +90,6 @@ $flex-ai: (
 .flex-grow-1 {
   flex-grow: 1;
 }
-
-//spacing
-//.mt-1  margin-top 1级 pb-2
-$spacing-types: (
-  m: margin,
-  p: padding
-);
-$spacing-directions: (
-  t: top,
-  b: bottom,
-  r: right,
-  l: left
-);
-$spacing-base-size: 1rem;
-
-$spacing-sizes: (
-  0: 0,
-  1: 0.25,
-  2: 0.5,
-  3: 1,
-  4: 1.5,
-  5: 3
-);
 
 @each $typeKey, $type in $spacing-types {
   //.m-1
@@ -171,5 +119,63 @@ $spacing-sizes: (
         #{$type}-#{$direction}: $size * $spacing-base-size;
       }
     }
+  }
+}
+
+//text-overflow
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//button
+.btn {
+  border: none;
+  border-radius: 0.153846rem;
+  /*map-get就是在之前定义好的变量里取一个 取sm这个号*/
+  font-size: map-get($font-sizes, 'sm') * $base-font-size;
+  padding: 0.2rem 0.6rem;
+}
+
+//nav
+.nav {
+  //默认横向分布 分散对齐
+  display: flex;
+  .nav-item {
+    /*加个透明边框有利于对齐。否则高低不统一容易对不齐*/
+    border-bottom: solid 3px transparent;
+    padding-bottom: 0.2rem;
+    &.active {
+      color: map-get($colors, 'primary');
+      border-bottom-color: map-get($colors, 'primary');
+    }
+  }
+  &.nav-inverse {
+    .nav-item {
+      color: map-get($colors, 'white');
+      &.active {
+        border-bottom-color: map-get($colors, 'white');
+      }
+    }
+  }
+}
+
+// sprite  0 0表示左上角对齐  定位网站 spritecow
+.sprite {
+  background: url(../assets/images/index.png) no-repeat 0 0;
+  background-size: 28.846154rem;
+  display: inline-block; // 用精灵图片来做，一定要显示宽高，否则显示不出来
+  &.sprite-news {
+    width: 1.769231rem;
+    height: 1.538462rem;
+    background-position: 63.546% 15.157%;
+  }
+
+  &.sprite-arrow {
+    width: 0.769231rem;
+    height: 0.769231rem;
+    background-position: 38.577% 52.076%;
   }
 }

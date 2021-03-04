@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-25 14:54:20
- * @LastEditTime: 2020-12-02 17:12:00
+ * @LastEditTime: 2021-01-04 10:28:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\admin\src\views\Main.vue
@@ -59,7 +59,8 @@
     </el-aside>
 
     <el-container>
-      <router-view></router-view>
+      <!-- 用path做key，防止缓存，只要路径不同就会重载 -->
+      <router-view :key="$route.path"></router-view>
     </el-container>
   </el-container>
 </template>

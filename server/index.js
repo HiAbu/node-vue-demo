@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-25 09:29:16
- * @LastEditTime: 2020-12-03 15:03:26
+ * @LastEditTime: 2021-01-04 14:23:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\server\index.js
@@ -23,6 +23,8 @@ require('./database/db')(app);
 //分配路由
 // 这样就直接调用了admin的index的方法。直接把app传进去
 require('./routes/admin')(app);
+
+require('./routes/web')(app);
 
 app.listen(3000, (res, req) => {
   console.log('执行');

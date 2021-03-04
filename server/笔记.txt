@@ -1,2 +1,8 @@
 1.inflection 工具包，专门转大小写和类名 本项目中用到 classify（）方法
 2.multer 处理图片上传
+
+3.chrome下快速获取自己想要的dom里嵌入的文字
+$$('.nav-icons .nav-item div').map(el =>el.innerHTML).slice(5)
+slice截取从5往后的留下
+
+4.引用模型，如果没有引用可能会报错 这时候可以用require-all

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-25 10:07:54
- * @LastEditTime: 2020-12-04 16:44:04
+ * @LastEditTime: 2021-01-04 10:44:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \node-vue-demo\server\routes\admin\index.js
@@ -64,7 +64,7 @@ module.exports = (app) => {
       // queryOptions.populate = 'categories';
       // 这里不能作为对象返回前端，可能因为categories关联的是数组
     }
-    const items = await req.Model.find().setOptions(queryOptions).limit(10);
+    const items = await req.Model.find().setOptions(queryOptions).limit(100);
     res.send(items); // 发送回前台
   });
   //获取分类详情接口
